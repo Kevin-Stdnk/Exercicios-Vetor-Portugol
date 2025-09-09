@@ -1,6 +1,6 @@
 programa {
   funcao inicio() {
-    real numjogos,preco = 0, codigo, totalditens = 0
+    real numjogos,preco = 0, codigo, totalditens = 0, maior, menor
     cadeia passardiag, escolhaa
     faca{
     escreva("Qual o número de jogos que você deseja cadastrar? [MAX 10]\n")
@@ -77,6 +77,20 @@ programa {
     para(inteiro i=0;i<totalditens;i++){
       escreva("\n  ",carrinhonome[i],"  -  R$",carrinhovalor[i])
     }
+    para(inteiro i=0;i<totalditens;i++){
+      se(i==0){
+        menor=carrinhovalor[i]
+        maior=carrinhovalor[i]
+      }
+       se(carrinhovalor[i]>maior){
+        maior = carrinhovalor[i]
+      }
+      senao se(carrinhovalor[i]<menor){
+        menor = carrinhovalor[i]
+      }
+    }
+    escreva("\n- O MENOR PREÇO É - R$",menor)
+    escreva("\n- O MAIOR PREÇO É - R$",maior)
     escreva("\n- PREÇO TOTAL - R$",preco)
 
 
